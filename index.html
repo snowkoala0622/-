@@ -16,7 +16,9 @@
     </p>
     <input type="text" id="guessField" />
     <input type="submit" value="猜!" id="guessSubmit" />
+    <input type="submit" value="揭曉答案!" id="TheAnswer" />
     <p class="message"></p>
+    <p class="Answermessage"></p>
 </body>
 <script>
     // Random number
@@ -29,9 +31,12 @@
     const message = document.querySelector(".message");
     const lowerbound = document.querySelector(".lowerbound");
     const upperbound = document.querySelector(".upperbound");
+    const TheAnswer = document. getElementById("TheAnswer");
+    const Answermessage = document.querySelector(".Answermessage");
 
     // Event listener
     guessSubmit.addEventListener("click", checkGuess);
+    TheAnswer.addEventListener("click", checkAnswer);
     let X = 0;
     // Guess function
     function checkGuess() {
@@ -55,6 +60,10 @@
         guessField.value = "";
         guessField.focus();
     }
+    function checkAnswer(){
+        Answermessage.textContent = "答案為:" + targetNumber
+        Answermessage.style.color = "red";
+        }
 </script>
 
 </html>
