@@ -56,6 +56,10 @@
             message.textContent = "太大了，再試一次。";
             message.style.color = "red";
         }
+        if (X===5){
+            message.textContent = "You Failed!答案是" + targetNumber
+            guessSubmit.disabled = true;
+        }
         X++;
         guessField.value = "";
         guessField.focus();
