@@ -59,6 +59,7 @@
         if (X===5){
             message.textContent = "You Failed!答案是" + targetNumber
             guessSubmit.disabled = true;
+            message.style.color = "red";
         }
         X++;
         guessField.value = "";
