@@ -39,14 +39,14 @@
     guessSubmit.addEventListener("click", checkGuess);
     TheAnswer.addEventListener("click", checkAnswer);
     PlayAgain.addEventListener("click",PlayGameAgain)
-    let X = 0;
+    let guesstimes = 0;
     // Guess function
     function checkGuess() {
         const userGuess = parseInt(guessField.value);
         console.log("userGuess: " + userGuess);
 
         if (userGuess === targetNumber) {
-            message.textContent = `恭喜你，你猜對了！你總共猜了${X + 1}次`;
+            message.textContent = `恭喜你，你猜對了！你總共猜了${guesstimes + 1}次`;
             message.style.color = "green";
             guessSubmit.disabled = true;
         } else if (userGuess < targetNumber) {
@@ -58,12 +58,13 @@
             message.textContent = "太大了，再試一次。";
             message.style.color = "red";
         }
-        if (X===5){
+        if (guesstimes===5){
             message.textContent = "You Failed!答案是" + targetNumber
             message.style.color = "red";
             guessSubmit.disabled = true;
+            setTimeout(PlayGameAgain,5000)
         }
-        X++;
+        guesstimes++;
         guessField.value = "";
         guessField.focus();
     }
@@ -75,11 +76,12 @@
         message.textContent =""
         Answermessage.textContent=""
         guessSubmit.disabled = false;
-        X = 0
+        guesstimes = 0
         lowerbound.textContent = 1
         upperbound.textContent = 100
         targetNumber = Math.floor(Math.random() * 100) + 1;
         }
+    
         
 </script>
 
